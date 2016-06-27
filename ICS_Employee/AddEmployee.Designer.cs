@@ -36,11 +36,23 @@
             this.btnSearchPosition = new System.Windows.Forms.Button();
             this.dgvSearchPeople = new System.Windows.Forms.DataGridView();
             this.dgvSearchPosition = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnInfoPeople = new System.Windows.Forms.Button();
+            this.btnInfoPosition = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbSalary = new System.Windows.Forms.TextBox();
+            this.tbPosition = new System.Windows.Forms.TextBox();
+            this.tbBirthday = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddPeople = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPeople)).BeginInit();
@@ -80,7 +92,7 @@
             // 
             this.groupBox2.Controls.Add(this.tbSearchPosition);
             this.groupBox2.Controls.Add(this.btnSearchPosition);
-            this.groupBox2.Location = new System.Drawing.Point(957, 13);
+            this.groupBox2.Location = new System.Drawing.Point(914, 14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(216, 52);
             this.groupBox2.TabIndex = 3;
@@ -111,48 +123,150 @@
             this.dgvSearchPeople.Name = "dgvSearchPeople";
             this.dgvSearchPeople.ReadOnly = true;
             this.dgvSearchPeople.RowTemplate.Height = 24;
-            this.dgvSearchPeople.Size = new System.Drawing.Size(487, 297);
+            this.dgvSearchPeople.Size = new System.Drawing.Size(461, 247);
             this.dgvSearchPeople.TabIndex = 4;
             // 
             // dgvSearchPosition
             // 
             this.dgvSearchPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchPosition.Location = new System.Drawing.Point(957, 71);
+            this.dgvSearchPosition.Location = new System.Drawing.Point(914, 72);
             this.dgvSearchPosition.Name = "dgvSearchPosition";
             this.dgvSearchPosition.ReadOnly = true;
             this.dgvSearchPosition.RowTemplate.Height = 24;
-            this.dgvSearchPosition.Size = new System.Drawing.Size(216, 298);
+            this.dgvSearchPosition.Size = new System.Drawing.Size(216, 247);
             this.dgvSearchPosition.TabIndex = 5;
             // 
-            // button1
+            // btnInfoPeople
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(513, 197);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 39);
-            this.button1.TabIndex = 6;
-            this.button1.Text = ">>";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInfoPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnInfoPeople.Location = new System.Drawing.Point(487, 185);
+            this.btnInfoPeople.Name = "btnInfoPeople";
+            this.btnInfoPeople.Size = new System.Drawing.Size(43, 39);
+            this.btnInfoPeople.TabIndex = 6;
+            this.btnInfoPeople.Text = ">>";
+            this.btnInfoPeople.UseVisualStyleBackColor = true;
+            this.btnInfoPeople.Click += new System.EventHandler(this.btnInfoPeople_Click);
             // 
-            // button2
+            // btnInfoPosition
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(908, 197);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(43, 39);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "<<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnInfoPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnInfoPosition.Location = new System.Drawing.Point(865, 185);
+            this.btnInfoPosition.Name = "btnInfoPosition";
+            this.btnInfoPosition.Size = new System.Drawing.Size(43, 39);
+            this.btnInfoPosition.TabIndex = 7;
+            this.btnInfoPosition.Text = "<<";
+            this.btnInfoPosition.UseVisualStyleBackColor = true;
+            this.btnInfoPosition.Click += new System.EventHandler(this.btnInfoPosition_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbSalary);
+            this.groupBox3.Controls.Add(this.tbPosition);
+            this.groupBox3.Controls.Add(this.tbBirthday);
+            this.groupBox3.Controls.Add(this.tbLastName);
+            this.groupBox3.Controls.Add(this.tbFirstName);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(590, 72);
+            this.groupBox3.Location = new System.Drawing.Point(536, 72);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(288, 297);
+            this.groupBox3.Size = new System.Drawing.Size(323, 188);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "New employeee:";
+            // 
+            // tbSalary
+            // 
+            this.tbSalary.Location = new System.Drawing.Point(111, 151);
+            this.tbSalary.Name = "tbSalary";
+            this.tbSalary.Size = new System.Drawing.Size(201, 22);
+            this.tbSalary.TabIndex = 19;
+            this.tbSalary.TextChanged += new System.EventHandler(this.tbSalary_TextChanged);
+            // 
+            // tbPosition
+            // 
+            this.tbPosition.Location = new System.Drawing.Point(111, 123);
+            this.tbPosition.Name = "tbPosition";
+            this.tbPosition.ReadOnly = true;
+            this.tbPosition.Size = new System.Drawing.Size(201, 22);
+            this.tbPosition.TabIndex = 18;
+            // 
+            // tbBirthday
+            // 
+            this.tbBirthday.Location = new System.Drawing.Point(111, 95);
+            this.tbBirthday.Name = "tbBirthday";
+            this.tbBirthday.ReadOnly = true;
+            this.tbBirthday.Size = new System.Drawing.Size(201, 22);
+            this.tbBirthday.TabIndex = 17;
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(111, 67);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.ReadOnly = true;
+            this.tbLastName.Size = new System.Drawing.Size(201, 22);
+            this.tbLastName.TabIndex = 16;
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.Location = new System.Drawing.Point(111, 39);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.ReadOnly = true;
+            this.tbFirstName.Size = new System.Drawing.Size(201, 22);
+            this.tbFirstName.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(12, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 18);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Salary:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(12, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 18);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Position:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(12, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 18);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Birthday:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(12, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 18);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Last name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 18);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "First name:";
             // 
             // label1
             // 
@@ -173,15 +287,39 @@
             this.btnAddPeople.UseVisualStyleBackColor = true;
             this.btnAddPeople.Click += new System.EventHandler(this.btnAddPeople_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCancel.Location = new System.Drawing.Point(777, 280);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(82, 39);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOK.Location = new System.Drawing.Point(689, 280);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(82, 39);
+            this.btnOK.TabIndex = 11;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1185, 381);
+            this.ClientSize = new System.Drawing.Size(1145, 330);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddPeople);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnInfoPosition);
+            this.Controls.Add(this.btnInfoPeople);
             this.Controls.Add(this.dgvSearchPosition);
             this.Controls.Add(this.dgvSearchPeople);
             this.Controls.Add(this.groupBox2);
@@ -211,10 +349,22 @@
         private System.Windows.Forms.Button btnSearchPosition;
         private System.Windows.Forms.DataGridView dgvSearchPeople;
         private System.Windows.Forms.DataGridView dgvSearchPosition;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInfoPeople;
+        private System.Windows.Forms.Button btnInfoPosition;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddPeople;
+        private System.Windows.Forms.TextBox tbSalary;
+        private System.Windows.Forms.TextBox tbPosition;
+        private System.Windows.Forms.TextBox tbBirthday;
+        private System.Windows.Forms.TextBox tbLastName;
+        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnOK;
     }
 }

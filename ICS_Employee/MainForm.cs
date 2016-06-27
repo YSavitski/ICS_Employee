@@ -43,61 +43,41 @@ namespace ICS_Employee
                     MessageBox.Show(ex.Message, string.Format("Connection error: {0}", ex.GetType()));
                 }
 
-                SqlCommand cmd_SelectEmpInfo = new SqlCommand(string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1]"), connection);
-                LoadData(mainAdapter, cmd_SelectEmpInfo, tblEmployeeInfo);
+                string cmd_SelectEmpInfo = string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1]");
+                Connection.LoadDataInTable(cmd_SelectEmpInfo, tblEmployeeInfo);
                 dgvEmpInfo.DataSource = tblEmployeeInfo;
 
 
 
-                SqlCommand cmd_LoadPositions = new SqlCommand(string.Format("SELECT DISTINCT p.PositionName FROM Position AS p ORDER BY p.PositionName ASC"), connection);
-                LoadData(mainAdapter, cmd_LoadPositions, tblPositions);
+                string cmd_LoadPositions = string.Format("SELECT DISTINCT p.PositionName FROM Position AS p ORDER BY p.PositionName ASC");
+                Connection.LoadDataInTable(cmd_LoadPositions, tblPositions);
                 cmbbPositions.DataSource = tblPositions;
                 cmbbPositions.DisplayMember = "PositionName";
-                
             }
         }
 
         private void cmbbPositions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(Connection.ConnectionStr()))
-            {
-                SqlCommand cmd_SelectEmpInfo = new SqlCommand(string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1] " +
-                                                                            "WHERE PositionName LIKE '%{0}%'",
-                                                    cmbbPositions.Text == "All" ? "" : cmbbPositions.Text), connection);
-                tblEmployeeInfo.Clear();
-                LoadData(mainAdapter, cmd_SelectEmpInfo, tblEmployeeInfo);
-                dgvEmpInfo.DataSource = tblEmployeeInfo;
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void LoadData(SqlDataAdapter adapter, SqlCommand cmd, DataTable table)
-        {
-            using (adapter = new SqlDataAdapter(cmd))
-            {
-                try
-                {
-                    adapter.Fill(table);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(string.Format("{0}: {1}", DateTime.Now, ex.Message), ex.GetType().ToString(), MessageBoxButtons.RetryCancel);
-                }
-            }
+            string cmd_SelectEmpInfo = string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1] " +
+                                                                        "WHERE PositionName LIKE '%{0}%'",
+                                                cmbbPositions.Text == "All" ? "" : cmbbPositions.Text);
+            tblEmployeeInfo.Clear();
+            Connection.LoadDataInTable(cmd_SelectEmpInfo, tblEmployeeInfo);
+            dgvEmpInfo.DataSource = tblEmployeeInfo;
         }
 
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.DialogResult result = new AddEmployee().ShowDialog();
+            tblEmployeeInfo.Clear();
+            string cmd_SelectEmpInfo = string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1]");
+            Connection.LoadDataInTable(cmd_SelectEmpInfo, tblEmployeeInfo);
+            dgvEmpInfo.DataSource = tblEmployeeInfo;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

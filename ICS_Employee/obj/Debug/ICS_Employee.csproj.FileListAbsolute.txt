@@ -8,3 +8,4 @@ F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.csproj.GenerateResource.C
 F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.exe
 F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.pdb
 F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.AddEmployee.resources
+F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.AddPeople.resources
