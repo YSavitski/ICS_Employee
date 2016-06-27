@@ -14,19 +14,20 @@ namespace ICS_Employee
     public partial class MainForm : Form
     {
         private DataTable tblEmployeeInfo = new DataTable("tblEmployeeInfo");
-        private DataTable tblPeople = new DataTable("tblPeople");
+        private DataTable tblPeoples = new DataTable("tblPeoples");
         private DataTable tblPositions = new DataTable("tblPositions");
         private SqlDataAdapter mainAdapter;
         public MainForm()
         {
             InitializeComponent();
+            this.CenterToScreen();
             DataRow newRow;
             DataColumn PositionName = new DataColumn("PositionName");
             tblPositions.Columns.Add(PositionName);
 
-            newRow = this.tblPositions.NewRow();
+            newRow = tblPositions.NewRow();
             newRow["PositionName"] = "All";
-            this.tblPositions.Rows.Add(newRow);
+            tblPositions.Rows.Add(newRow);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,6 +57,28 @@ namespace ICS_Employee
             }
         }
 
+        private void cmbbPositions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(Connection.ConnectionStr()))
+            {
+                SqlCommand cmd_SelectEmpInfo = new SqlCommand(string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1] " +
+                                                                            "WHERE PositionName LIKE '%{0}%'",
+                                                    cmbbPositions.Text == "All" ? "" : cmbbPositions.Text), connection);
+                tblEmployeeInfo.Clear();
+                LoadData(mainAdapter, cmd_SelectEmpInfo, tblEmployeeInfo);
+                dgvEmpInfo.DataSource = tblEmployeeInfo;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void LoadData(SqlDataAdapter adapter, SqlCommand cmd, DataTable table)
         {
@@ -72,17 +95,9 @@ namespace ICS_Employee
             }
         }
 
-        private void cmbbPositions_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAddEmp_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(Connection.ConnectionStr()))
-            {
-                SqlCommand cmd_SelectEmpInfo = new SqlCommand(string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1] " +
-                                                                            "WHERE PositionName LIKE '%{0}%'",
-                                                    cmbbPositions.Text == "All" ? "" : cmbbPositions.Text), connection);
-                tblEmployeeInfo.Clear();
-                LoadData(mainAdapter, cmd_SelectEmpInfo, tblEmployeeInfo);
-                dgvEmpInfo.DataSource = tblEmployeeInfo;
-            }
+            System.Windows.Forms.DialogResult result = new AddEmployee().ShowDialog();
         }
     }
 }

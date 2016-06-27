@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,6 +27,27 @@ namespace ICS_Employee
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
             return str_connection;
+        }
+
+
+        public static void LoadDataInTable(string cmdText, DataTable table)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr()))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(cmdText, connection);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    try
+                    {
+                        adapter.Fill(table);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(string.Format("{0}: {1}", DateTime.Now, ex.Message), ex.GetType().ToString(), MessageBoxButtons.RetryCancel);
+                    }
+                }
+            }
         }
     }
 }

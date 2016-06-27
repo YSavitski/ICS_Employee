@@ -7,3 +7,4 @@ F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.Properties.Resources.reso
 F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.csproj.GenerateResource.Cache
 F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.exe
 F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.pdb
+F:\C#\ICS_Employee\ICS_Employee\obj\Debug\ICS_Employee.AddEmployee.resources
