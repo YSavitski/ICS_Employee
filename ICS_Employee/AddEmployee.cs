@@ -159,6 +159,7 @@ namespace ICS_Employee
                             tbLastName.Clear();
                             tbBirthday.Clear();
                             tbPosition.Clear();
+                            tbSalary.Clear();
 
                             tbFirstName.ReadOnly = true;
                             tbLastName.ReadOnly = true;

@@ -115,5 +115,10 @@ namespace ICS_Employee
                 }
             }
         }
+
+        private void btnReportAVGSalary_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.DialogResult result = new ReportForm().ShowDialog();
+        }
     }
 }

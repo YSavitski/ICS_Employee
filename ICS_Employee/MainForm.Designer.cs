@@ -31,7 +31,7 @@
             this.dgvEmpInfo = new System.Windows.Forms.DataGridView();
             this.btnAddEmp = new System.Windows.Forms.Button();
             this.btnSackEmp = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnReportAVGSalary = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.cmbbPositions = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -71,14 +71,15 @@
             this.btnSackEmp.UseVisualStyleBackColor = true;
             this.btnSackEmp.Click += new System.EventHandler(this.btnSackEmp_Click);
             // 
-            // button3
+            // btnReportAVGSalary
             // 
-            this.button3.Location = new System.Drawing.Point(6, 79);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Report AVG Salary";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnReportAVGSalary.Location = new System.Drawing.Point(6, 79);
+            this.btnReportAVGSalary.Name = "btnReportAVGSalary";
+            this.btnReportAVGSalary.Size = new System.Drawing.Size(139, 23);
+            this.btnReportAVGSalary.TabIndex = 3;
+            this.btnReportAVGSalary.Text = "Report AVG Salary";
+            this.btnReportAVGSalary.UseVisualStyleBackColor = true;
+            this.btnReportAVGSalary.Click += new System.EventHandler(this.btnReportAVGSalary_Click);
             // 
             // btnClose
             // 
@@ -114,7 +115,7 @@
             // 
             this.groupBox2.Controls.Add(this.btnAddEmp);
             this.groupBox2.Controls.Add(this.btnSackEmp);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnReportAVGSalary);
             this.groupBox2.Location = new System.Drawing.Point(227, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(153, 111);
@@ -146,7 +147,7 @@
         private System.Windows.Forms.DataGridView dgvEmpInfo;
         private System.Windows.Forms.Button btnAddEmp;
         private System.Windows.Forms.Button btnSackEmp;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReportAVGSalary;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cmbbPositions;
         private System.Windows.Forms.GroupBox groupBox1;
