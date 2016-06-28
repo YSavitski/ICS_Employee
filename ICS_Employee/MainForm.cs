@@ -14,9 +14,7 @@ namespace ICS_Employee
     public partial class MainForm : Form
     {
         private DataTable tblEmployeeInfo = new DataTable("tblEmployeeInfo");
-        private DataTable tblPeoples = new DataTable("tblPeoples");
         private DataTable tblPositions = new DataTable("tblPositions");
-        private SqlDataAdapter mainAdapter;
         public MainForm()
         {
             InitializeComponent();
@@ -78,6 +76,44 @@ namespace ICS_Employee
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSackEmp_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Delete this record. Are you sure?", "DeleteDialog", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+            {
+                var currRow = (dgvEmpInfo.CurrentRow.DataBoundItem as DataRowView).Row;
+                using (SqlConnection connection = new SqlConnection(Connection.ConnectionStr()))
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand("spSackEmployee", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("FirstName", currRow["FirstName"].ToString());
+                        cmd.Parameters.AddWithValue("LastName", currRow["LastName"]);
+                        cmd.Parameters.AddWithValue("Birthday", currRow["Birthday"].ToString());
+                        cmd.Parameters.AddWithValue("PositionName", currRow["PositionName"].ToString());
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Success Sacking!");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+                        finally
+                        {
+                            tblEmployeeInfo.Clear();
+                            string cmd_SelectEmpInfo = string.Format("SELECT * FROM [ICSDB].[dbo].[vwEmployeeInfo_v1]");
+                            Connection.LoadDataInTable(cmd_SelectEmpInfo, tblEmployeeInfo);
+                            dgvEmpInfo.DataSource = tblEmployeeInfo;
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -69,6 +69,7 @@
             this.btnSackEmp.TabIndex = 2;
             this.btnSackEmp.Text = "Sack Employee";
             this.btnSackEmp.UseVisualStyleBackColor = true;
+            this.btnSackEmp.Click += new System.EventHandler(this.btnSackEmp_Click);
             // 
             // button3
             // 
